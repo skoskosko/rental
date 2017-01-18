@@ -1,0 +1,68 @@
+<!doctype html>
+<html ng-app="myApp" ng-controller="MainCtrl">
+  <head>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular-route.min.js"></script>
+    <script src="https://code.angularjs.org/1.6.1/angular-cookies.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.5.4/bootstrap-slider.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.5.4/css/bootstrap-slider.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="js/css.css">
+    <link href="js/fileinput/css/fileinput.min.css" media="all" rel="stylesheet" type="text/css" />
+    <script src="js/fileinput/js/fileinput.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+
+
+  <div class="container-fluid" style="background-color:#B5E61D;height:150px;">
+    <img src="/rentarat/states/img/ratbanner.png">
+  </div>
+
+  <nav class="navbar navbar-inverse navbar-static" data-spy="affix" data-offset-top="147">
+
+            <a class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              asd
+              <span class="glyphicon glyphicon-bar"></span>
+              <span class="glyphicon glyphicon-bar"></span>
+              <span class="glyphicon glyphicon-bar"></span>
+            </a>
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                <li id="Home"><a href="#/">{{lang.home}}</a></li>
+                <li class="divider"></li>
+                <li id="Rentals"><a href="#/rental">{{lang.rentals}}</a></li>
+
+              </ul>
+              <ul class="nav pull-right navbar-nav">
+                <li><a ng-click="langfunc('eng')">English</a></li>
+                <li><a ng-click="langfunc('fin')">Suomi</a></li>
+                <li id="Profile"><a href="#/profile">{{lang.profile}}</a></li>
+              </ul>
+            </div>
+          </div>
+  </nav>
+
+
+
+  <div id="contents" class="container-fluid" data-spy="affix" ng-view>
+
+
+  </div>
+
+
+<footer>
+<div class = "fname"></div>
+<div class = "flogout" )><button class="btn btn-default" ng-click="logout()">logout</button></div>
+</footer>
+
+<script src="js/app.js"></script>
+<script src="js/controller.js"></script>
+<script src="js/searchfilter.js"></script>
+<script src="js/rentalcntrl.js"></script>
+<script src="js/admincntrl.js"></script>
+<script src="js/postget.js"></script>
+<script src="js/language.js"></script>
+
+</html>

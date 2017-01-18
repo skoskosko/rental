@@ -1,0 +1,541 @@
+<div class="modal fade" id="messagesmodal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">messages from {{messagemodal.owner}}</h4>
+            </div>
+            <div class="modal-body">
+
+              <div class="col-xs-12">
+                  <label>{{lang.message}}:</label>
+              </div>
+
+
+
+                  <textarea class="form-control" rows="4" cols="50" style="resize : none;" ng-model="sendablemessage"></textarea>
+
+                        <button type="button" class="btn btn-success" data-dismiss="modal" ng-click="sendmessage(sendablemessage)">{{lang.message}}</button>
+
+
+            <div ng-repeat="x in messagemodal.messages " >
+                  <div class="messagebox {{x.to}}">
+                    {{lang.from + " : "+x.sender}}<br>
+                    {{x.stamp}}<br>
+                    {{x.message}}
+                  </div>
+            </div>
+
+
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="sendmessage()">Send</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="editrents" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">CHANGE ORDER STATUS</h4>
+            </div>
+            <div class="modal-body">
+
+<select ng-model="rentedit.status">
+<option value="Canceled">Canceled</option>
+<option value="unconfirmed">unconfirmed</option>
+<option value="Confirmed">Confirmed</option>
+<option value="Under investigation">Under investigation</option>
+</select>
+
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="editrent()">Save</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="read" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title"></h4>
+            </div>
+            <div class="modal-body">
+                {{modaltext.text}}
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="reads" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title"></h4>
+            </div>
+            <div class="modal-body">
+                <div ng-repeat="x in modaltext.text">
+
+                    <label>{{x.reason}}</label><br> {{x.data}}
+                    <br><br>
+
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Make new rat</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+
+                    <input id="input-id" type="file" multiple class="file-loading" data-preview-file-type="text" file-model="sampleFile">
+
+                    <div class="form-group">
+                        <label>Name:</label>
+                        <input type="text" class="form-control" ng-model="newrat.name">
+                    </div>
+                    <div class="form-group">
+                        <label>Weight:</label>
+                        <input type="text" class="form-control" ng-model="newrat.weight">
+                    </div>
+                    <div class="form-group">
+                        <label>Gender:</label>
+                        <input type="text" class="form-control" ng-model="newrat.gender">
+                    </div>
+                    <div class="form-group">
+                        <label>Color:</label>
+                        <input type="text" class="form-control" ng-model="newrat.color">
+                    </div>
+                    <div class="form-group">
+                        <label>Date of birth:</label>
+                        <input type="date" class="form-control" ng-model="newrat.birthdate">
+                    </div>
+                    <div class="form-group">
+                        <label>Descrription:</label>
+                        <input type="text" class="form-control" ng-model="newrat.description">
+                    </div>
+                    <div class="form-group">
+                        <label>Salary:</label>
+                        <input type="text" class="form-control" ng-model="newrat.salary">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Tags:</label>
+
+                        <div class="col-xs-9">
+                            <input type="text" class="form-control" id="tags" maxlength="50" ng-model="tag" placeholder="Add atleas one more tag to upload">
+                        </div>
+                        <div class="col-xs-1">
+                            <button class="btn btn-primary" type="button" ng-click="addTag(tag)">+</button>
+                        </div>
+                    </div>
+                    <div class="form-group" ng-repeat="x in newrat.tags">
+                        <p>{{x.tag}} <span class="glyphicon glyphicon-trash" aria-hidden="true" ng-click="delTag($index)"></span ></p >
+                    </div>
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="submitnewrat()">Save</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="modal fade" id="editmodal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Update rat</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+
+
+                  <div class="form-group">
+                      <label>Status:</label>
+                      <select name="Status" ng-model="currentrat.status" form="carform">
+                          <option value="hidden">hidden</option>
+                          <option value="visible">visible</option>
+                      </select>
+
+
+
+                  </div>
+                    <div class="form-group">
+                        <label>Name:</label>
+                        <input type="text" class="form-control" ng-model="currentrat.name">
+                    </div>
+                    <div class="form-group">
+                        <label>Weight:</label>
+                        <input type="text" class="form-control" ng-model="currentrat.weight">
+                    </div>
+                    <div class="form-group">
+                        <label>Gender:</label>
+                        <input type="text" class="form-control" ng-model="currentrat.gender">
+                    </div>
+                    <div class="form-group">
+                        <label>Color:</label>
+                        <input type="text" class="form-control" ng-model="currentrat.color">
+                    </div>
+                    <div class="form-group">
+                        <label>Descrription:</label>
+                        <input type="text" class="form-control" ng-model="currentrat.description">
+                    </div>
+                    <div class="form-group">
+                        <label>Salary:</label>
+                        <input type="text" class="form-control" ng-model="currentrat.salary">
+                    </div>
+
+                    <div class="form-group">
+            <label>Tags:</label>
+
+                        <div class="col-xs-9">
+                            <input type="text" class="form-control" id="tags" maxlength="50" ng-model="tag" placeholder="Add atleas one more tag to upload">
+                        </div>
+                        <div class="col-xs-1">
+                            <button class="btn btn-primary" type="button" ng-click="addTag2(tag)">+</button>
+                        </div>
+                    </div>
+                    <div class="form-group" ng-repeat="x in currentrat.tags">
+                        <p>{{x.tag}} <span class="glyphicon glyphicon-trash" aria-hidden="true" ng-click="delCurTag($index)"></span ></p >
+                    </div>
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="updaterat()">Save</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<h3>Administritive tools (english only)</h3>
+
+          <!-- :::      ::::::::   ::::::::   ::::::::  :::::::::  ::::::::: ::::::::::: ::::::::  ::::    :::          :::::::: ::::::::::: :::     ::::::::: :::::::::::
+       :+: :+:   :+:    :+: :+:    :+: :+:    :+: :+:    :+: :+:    :+:    :+:    :+:    :+: :+:+:   :+:         :+:    :+:    :+:   :+: :+:   :+:    :+:    :+:
+     +:+   +:+  +:+        +:+        +:+    +:+ +:+    +:+ +:+    +:+    +:+    +:+    +:+ :+:+:+  +:+         +:+           +:+  +:+   +:+  +:+    +:+    +:+
+   +#++:++#++: +#+        +#+        +#+    +:+ +#++:++#:  +#+    +:+    +#+    +#+    +:+ +#+ +:+ +#+         +#++:++#++    +#+ +#++:++#++: +#++:++#:     +#+
+  +#+     +#+ +#+        +#+        +#+    +#+ +#+    +#+ +#+    +#+    +#+    +#+    +#+ +#+  +#+#+#                +#+    +#+ +#+     +#+ +#+    +#+    +#+
+ #+#     #+# #+#    #+# #+#    #+# #+#    #+# #+#    #+# #+#    #+#    #+#    #+#    #+# #+#   #+#+#         #+#    #+#    #+# #+#     #+# #+#    #+#    #+#
+###     ###  ########   ########   ########  ###    ### ######### ########### ########  ###    ####          ########     ### ###     ### ###    ###    ### -->
+
+
+<button class="accordion">User infromation</button>
+<div class="panel">
+
+  <table class="table table-hover table-condensed table-striped" style="border-collapse:collapse;">
+      <thead>
+          <tr>
+              <td>id</td>
+              <td>name</td>
+              <td>email</td>
+              <td>town</td>
+              <td>freeword</td>
+          </tr>
+      </thead>
+
+
+      <tbody ng-repeat="user in users">
+          <tr>
+              <td> {{user._id}}</td>
+              <td> {{user.name}}</td>
+              <td> {{user.email}}</td>
+              <td> {{user.town}}</td>
+              <td>   <button type="button" class="btn btn-success" ng-click="readinmodal(user.freeword)" data-toggle="modal" data-target="#read">read in modal</button></td>
+          </tr>
+      </tbody>
+  </table>
+
+</div>
+
+<button class="accordion">future/ongoing Rent information</button>
+<div class="panel">
+ <!--
+ #####  ###### #    # #####  ####
+ #    # #      ##   #   #   #
+ #    # #####  # #  #   #    ####
+ #####  #      #  # #   #        #
+ #   #  #      #   ##   #   #    #
+ #    # ###### #    #   #    #### -->
+
+
+
+
+   <table class="table table-hover table-condensed table-striped" style="border-collapse:collapse;">
+       <thead>
+           <tr>
+               <td>{{lang.ratsname}}</td>
+               <td>{{lang.renter}}</td>
+               <td>{{lang.status}}</td>
+               <td>{{lang.starttime}}</td>
+               <td>{{lang.endtime}}</td>
+               <td>{{lang.price}}</td>
+           </tr>
+       </thead>
+
+
+       <tbody ng-repeat="rent in incomingrents">
+           <tr>
+               <td> {{rent.ratname}}</td>
+               <td> {{rent.renter}}</td>
+               <td> {{rent.status}}</td>
+               <td> {{rent.starttime}}</td>
+               <td> {{rent.endtime}}</td>
+               <td> {{rent.price}}</td>
+               <td>
+
+                 <button type="button" class="btn btn-primary" data-toggle="modal" ng-click="readinmodal(rent.edits)" data-target="#reads" >
+
+               read edits</button>
+
+                   <button type="button" class="btn btn-warning" data-toggle="modal" ng-click="editrents(rent)" data-target="#editrents" >
+                 <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> {{lang.edit}}
+                            </button>
+                            </td>
+                            </tr>
+
+                            </tbody>
+                            </table>
+
+
+                    </div>
+                    <!--
+ #####    ##    ####  #####    #####  ###### #    # #####  ####
+ #    #  #  #  #        #      #    # #      ##   #   #   #
+ #    # #    #  ####    #      #    # #####  # #  #   #    ####
+ #####  ######      #   #      #####  #      #  # #   #        #
+ #      #    # #    #   #      #   #  #      #   ##   #   #    #
+ #      #    #  ####    #      #    # ###### #    #   #    #### -->
+                    <button class="accordion">past Rent information</button>
+                    <div id="foo" class="panel">
+
+                        <table class="table table-hover table-condensed table-striped" style="border-collapse:collapse;">
+                            <thead>
+                                <tr>
+                                    <td>{{lang.ratsname}}</td>
+                                    <td>{{lang.renter}}</td>
+                                    <td>{{lang.status}}</td>
+                                    <td>{{lang.starttime}}</td>
+                                    <td>{{lang.endtime}}</td>
+                                    <td>{{lang.price}}</td>
+                                </tr>
+                            </thead>
+
+
+                            <tbody ng-repeat="rent in historyrents">
+                                <tr data-toggle="modal" ng-click="ratmodal(rent.ratid)" data-target="#ratmodal">
+                                    <td> {{rent.ratname}}</td>
+                                    <td> {{rent.renter}}</td>
+                                    <td> {{rent.status}}</td>
+                                    <td> {{rent.starttime}}</td>
+                                    <td> {{rent.endtime}}</td>
+                                    <td> {{rent.price}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+
+                    <!--
+ #####    ##   #####  ####
+ #    #  #  #    #   #
+ #    # #    #   #    ####
+ #####  ######   #        #
+ #   #  #    #   #   #    #
+ #    # #    #   #    #### -->
+                    <button class="accordion">list of rentable rats</button>
+                    <div id="foo" class="panel">
+
+
+                        <p>also adding editing and removing of rats</p>
+
+                        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">
+    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+    Add new rat</button>
+
+
+                        <table class="table table-hover table-condensed table-striped" style="border-collapse:collapse;">
+                            <thead>
+                                <tr>
+                                    <td></td>
+                                    <td>Name</td>
+                                    <td>Status</td>
+                                    <td>Gender</td>
+                                    <td>Salary h/€</td>
+                                    <td>Color</td>
+                                    <td>Toiminnot</td>
+                                </tr>
+                            </thead>
+
+
+                            <tbody ng-repeat="rat in completeratlist">
+                                <tr>
+                                    <td> <img src="{{'http://node.takku.eu:8080'+rat.location}}" alt="Smiley face" height="30"> </td>
+                                    <td> {{rat.name}}</td>
+                                    <td> {{rat.status}}</td>
+                                    <td> {{rat.gender}}</td>
+                                    <td> {{rat.salary}}</td>
+                                    <td> {{rat.color}}</td>
+                                    <td>
+                                        <button type="button" class="btn btn-primary" data-toggle="modal" ng-click="infomodal(rat.number)" data-target="#infomodal">
+                  <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+                  Profile
+               </button>
+
+                                        <button type="button" class="btn btn-warning" data-toggle="modal" ng-click="infomodal(rat.number)" data-target="#editmodal">
+                  <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                  Edit</button>
+
+                                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="{{'#deleteModal'+rat._id}}">
+<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+Delete</button>
+
+                                        <div class="modal fade" id="{{'deleteModal'+rat._id}}" role="dialog">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                        <h4 class="modal-title">Are you sure</h4>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        This permanently removes the rat in question
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="delrat(rat._id)">Yes</button>
+                                                        <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+
+                    </div>
+
+                    <button class="accordion">messages</button>
+                    <div id="foo" class="panel">
+                      <!--
+                       #    # ######  ####   ####    ##    ####  ######  ####
+                       ##  ## #      #      #       #  #  #    # #      #
+                       # ## # #####   ####   ####  #    # #      #####   ####
+                       #    # #           #      # ###### #  ### #           #
+                       #    # #      #    # #    # #    # #    # #      #    #
+                       #    # ######  ####   ####  #    #  ####  ######  #### -->
+
+            <div ng-repeat="mes in messagethingy" >
+            <div class="messagethingy" ng-click="messagemodalfunc(mes)" data-toggle="modal"  data-target="#messagesmodal"><br><br><br> {{mes.owner}}</div>
+            </div>
+
+
+
+
+                    </div>
+
+
+                    <div class="modal fade" id="infomodal" role="dialog">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title">Rats info</h4>
+                                </div>
+                                <div class="modal-body">
+
+
+                                    <table class="table table-bordered">
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">Name</th>
+                                                <td>{{currentrat.name}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Birthdate</th>
+                                                <td>{{currentrat.birthdate}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Color</th>
+                                                <td>{{currentrat.color}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">gender</th>
+                                                <td>{{currentrat.gender}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">salary</th>
+                                                <td>{{currentrat.salary + " €/h"}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">weight</th>
+                                                <td>{{currentrat.weight + " g"}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">status</th>
+                                                <td>{{currentrat.status}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+
+                                    <div class="imganddescprp">
+                                        <div class="imganddescprpimg">
+                                            <img class="imganddescprpimg" src="{{'http://node.takku.eu:8080'+currentrat.location}}" alt="Smiley face" height="100">
+                                        </div>Description
+                                        <div class="imganddescprpdesc">
+                                            {{currentrat.description}}
+                                        </div>
+
+                                    </div><br>Tags
+                                    <div class="taglist">
+                                        <div class="tag" ng-repeat="x in currentrat.tags">
+                                            {{x.tag}}
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>

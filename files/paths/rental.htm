@@ -1,0 +1,405 @@
+
+
+<div class="modal fade" id="suretorentaarat" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">{{lang.renting+ " " + profilerat.name}} </h4>
+
+            </div>
+            <div class="modal-body">
+
+<div id="beforerentretunr">
+
+              {{lang.areyousure +" "+ profilerat.name + lang.areyousure2}}{{search.orderlength*profilerat.salary}}
+              {{lang.areyousure3 }}
+
+
+<br><br><br>
+
+<div class="col-xs-12">
+
+<div class="col-xs-6">
+  <label>{{lang.starttime}}:</label>
+</div>
+<div class="col-xs-6">
+{{search.startdate}}
+
+</div>
+</div>
+
+<div class="col-xs-12">
+
+<div class="col-xs-6">
+  <label>{{lang.endtime}}:</label>
+</div>
+<div class="col-xs-6">
+{{search.endingdate}}
+
+</div>
+</div>
+
+</div>
+
+<div id="rentretunr">
+
+{{retrunfromthing.return}}
+
+
+
+</div>
+
+
+
+
+          </div>
+
+          <div class="modal-footer">
+
+                <button id="sendrentbutton" type="button" class="btn btn-default" ng-click="sendingthing()">{{lang.makeorder}}</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clsoingsending()">{{lang.close}}</button>
+
+          </div>
+        </div>
+    </div>
+</div>
+
+
+  <div class="modal fade" id="rentaarat" role="dialog">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header">
+
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">{{lang.renting+ " " + profilerat.name}} </h4>
+
+              </div>
+              <div class="modal-body">
+
+
+
+                {{lang.weight}} : {{profilerat.weight}} g<br>
+                {{lang.gender}}: {{profilerat.gender}}<br>
+                {{lang.color}}:  {{profilerat.color}}<br>
+                {{lang.salary}}: {{profilerat.salary}}  €/h<br>
+                {{lang.age}}: {{profilerat.age}} {{lang.months}}
+
+                <br><br>
+                {{lang.rentingthisrat}}<br>
+
+                <div class="col-xs-12">
+                <div class="col-xs-2">
+                  <label>{{lang.orderdate}}:</label>
+                </div>
+                <div class="col-xs-4">
+                <input type="date" class="form-control" ng-model="search.orderdate" min="{{today}}">
+                </div>
+                <div class="col-xs-2">
+                  <label>{{lang.ordertime}}:</label>
+                </div>
+                <div class="col-xs-4">
+                <input type="time" class="form-control" ng-model="search.orderdate">
+                </div>
+                </div>
+
+
+                <div class="col-xs-12">
+
+                <div class="col-xs-6">
+                  <label>{{lang.orderlength}}:{{search.orderlength}}</label>
+                </div>
+                <div class="col-xs-6">
+
+                <input  id="ex3"  type="text" />
+                </div>
+            </div>
+
+                {{lang.totalprice}} {{search.orderlength*profilerat.salary}} €
+  <br>
+                <textarea rows="4" cols="50" placeholder="{{lang.renttext}}" ng-model="search.text" style="resize: none;">
+
+                </textarea>
+<br>
+                {{message.info}}
+
+
+            </div>
+
+            <div class="modal-footer">
+
+                  <button type="button" id="makeorder" class="btn btn-default" data-dismiss="modal" data-toggle="modal" data-target="#suretorentaarat"  ng-click="setRental()">{{lang.makeorder}}</button>
+                  <button type="button" class="btn btn-default" data-dismiss="modal">{{lang.close}}</button>
+
+            </div>
+          </div>
+      </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class ="profilearea">
+
+
+
+
+
+<div class="prrofiletoparea">
+
+  <div class="backbuttontoprofile" >
+  <button type="button" class="btn btn-primary" ng-click="backtorents()">Back</button>
+  </div>
+
+<div class ="profiletitle">
+  <h1>{{profilerat.name}}</h1>
+</div>
+
+
+
+
+</div>
+
+<div class="profileitems">
+<div class="profileleft">
+<img ng-src="{{'http://node.takku.eu:8080'+profilerat.location}}" id="sataimage">
+
+
+</div>
+
+<div class ="profileright">
+
+<p>{{lang.ratname}} : {{profilerat.name}}</p>
+<p>{{lang.weight}} : {{profilerat.weight}} g</p>
+<p>{{lang.gender}} : {{profilerat.weight}}</p>
+<p>{{lang.color}} : {{profilerat.color}}</p>
+<p>{{lang.age}} : {{profilerat.age}} {{lang.months}}</p>
+<p>{{lang.salary}} : {{profilerat.salary}} {{lang.eurotoh}}</p>
+<p>{{lang.description}}</p>
+<p>{{profilerat.description}}</p>
+<p>Tags</p>
+<p><k ng-repeat="tag in profilerat.tags" id="tagbox">{{tag.tag}} </k> </p>
+
+
+</div>
+</div>
+
+
+
+<div class = "profilebuttons" id="notloggedin">
+{{lang.loginorder}}
+
+  <button class="btn btn-lg btn-primary btn-block" data-toggle="modal" data-target="#login">{{lang.signin}}</button>
+  <button class="btn btn-lg btn-primary btn-block" ng-click="gotologin()">{{lang.register}}</button>
+
+
+
+</div>
+<div class = "profilebuttons" id="loggedin">
+  <br><br><br>
+  <button class="btn btn-lg btn-primary btn-block" ng-click="ratorder(profilerat.number)" data-toggle="modal" data-target="#rentaarat">{{lang.rentarat}}</button>
+
+</div>
+
+</div>
+
+
+<div class ="rentarea" >
+ <!-- #    #   ##   #    # #    #
+ #    #  #  #  #   #  #    #
+ ###### #    # ####   #    #
+ #    # ###### #  #   #    #
+ #    # #    # #   #  #    #
+ #    # #    # #    #  #### -->
+
+<div class="col-xs-13">
+    <input type="text" placeholder="{{lang.searhtagsbla}}" class="form-control" id="searchBar" ng-model="search.tag" list="taglistings">
+</div>
+<div class="col-xs-12">
+<div class="col-xs-2">
+  <label>{{lang.color}}:</label>
+</div>
+  <div class="col-xs-4">
+<select class="form-control" ng-model="search.color">
+  <option value=""></option>
+  <option ng-repeat="ttl in colorlist"  value="{{ttl.color}}">{{ttl.color}}</option>
+</select>
+</div>
+
+
+<div class="col-xs-2">
+  <label>{{lang.gender}}:</label>
+</div>
+<div class="col-xs-4">
+<select class="form-control" ng-model="search.gender">
+<option value=""></option>
+<option value="Male">Male</option>
+<option value="Female">Female</option>
+</select>
+</div>
+</div>
+
+<div class="col-xs-12">
+<div class="col-xs-2">
+  <label>{{lang.orderdate}}:</label>
+</div>
+<div class="col-xs-4">
+<input type="date" class="form-control" ng-model="search.orderdate" min="{{today}}">
+</div>
+<div class="col-xs-2">
+  <label>{{lang.ordertime}}:</label>
+</div>
+<div class="col-xs-4">
+<input type="time" class="form-control" ng-model="search.orderdate">
+</div>
+</div>
+
+
+<div class="col-xs-12">
+
+<div class="col-xs-2">
+  <label>{{lang.orderlength}}:{{search.orderlength}}</label>
+</div>
+<div class="col-xs-4">
+
+<input  id="ex1"  type="text" />
+</div>
+
+
+<div class="col-xs-2">
+<label>{{lang.priceperhour}}:{{search.price[0] + "€-"+search.price[1]+"€"}}</label>
+</div>
+<div class="col-xs-4">
+
+<input id="ex2" type="text"/><br/>
+
+
+</div>
+</div>
+
+
+<BR>
+<div class="col-xs-13">
+<div align="center" ng-repeat="x in search.tags ">
+    <div class="tagthing">
+        {{x.tag}}
+  <span id="delImg" class="glyphicon glyphicon-remove" aria-hidden="true" ng-click="delSearchTag($index)"></span>
+    </div>
+</div>
+</div>
+<BR><BR>
+<BR><BR>
+<br><br>
+
+  <h1>{{lang.rentalstop}}</h1>
+
+
+
+
+
+
+
+
+<!--
+ #####  ###### #####  ######   ##   #####
+ #    # #      #    # #       #  #    #
+ #    # #####  #    # #####  #    #   #
+ #####  #      #####  #      ######   #
+ #   #  #      #      #      #    #   #
+ #    # ###### #      ###### #    #   # -->
+
+
+
+
+
+
+<div ng-repeat="rat in ratlist|searchFiltering:search:editarray">
+<div class="infocard {{'indocard' + rat._id}}"  ng-click="infocardclicked(rat.number)" >
+{{rat.name}}
+<div class="infocardleft"><img src="{{'http://node.takku.eu:8080'+rat.location}} "  id ="infoimage"> </div>
+<div class="infocardright">
+{{lang.weight}} : {{rat.weight}} g<br>
+{{lang.gender}}: {{rat.gender}}<br>
+{{lang.color}}:  {{rat.color}}<br>
+{{lang.salary}}: {{rat.salary}}  €/h<br>
+{{lang.age}}: {{rat.age}} {{lang.months}}
+
+
+
+ </div>
+</div>
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+<div class="modal fade" id="login" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">{{lang.signin}}</h4>
+
+            </div>
+            <div class="modal-body">
+
+              <label for="inputEmail" class="sr-only">{{lang.email}}</label>
+              <input type="email" id="inputEmail" class="form-control" placeholder="{{lang.email}}" ng-model="email" required autofocus>
+              <label for="inputPassword" class="sr-only">{{lang.password}}</label>
+              <input type="password" id="inputPassword" class="form-control" placeholder="{{lang.password}}" ng-model="pwd" required>
+
+              <button class="btn btn-lg btn-primary btn-block"data-dismiss="modal" ng-click="login(email,pwd)">{{lang.signin}}</button>
+
+
+
+
+
+          </div>
+
+          <div class="modal-footer">
+
+                <button type="button" class="btn btn-default" data-dismiss="modal">{{lang.close}}</button>
+
+          </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<datalist id="taglistings">
+  <asd data-ng-repeat="ttl in taglist" >
+  <option   value="{{ttl}}">{{ttl}}</option>
+</asd>
+</datalist>

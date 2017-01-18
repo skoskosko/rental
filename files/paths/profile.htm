@@ -1,0 +1,358 @@
+<h3>{{lang.profile}}</h3>
+
+
+<div class="modal fade" id="editmodal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">{{lang.editrent}}</h4>
+            </div>
+            <div class="modal-body">
+              <div class="col-xs-12">
+
+                  <label>{{lang.descipreWHY}}:</label>
+
+              </div>
+              <div class="col-xs-12">
+                    <textarea class="form-control" rows="4" cols="50" style="resize : none;" ng-model="descipreWHY"></textarea>
+              </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="editorder(descipreWHY)">{{lang.editorder}}</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="cancelorder(descipreWHY)">{{lang.cancelorder}}</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">{{lang.close}}</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="ratmodal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">{{profilerat.name}}</h4>
+            </div>
+            <div class="modal-body">
+
+
+              <div class="prrofiletoparea">
+
+
+              <div class ="profiletitle">
+                <h1>{{profilerat.name}}</h1>
+              </div>
+
+
+
+
+              </div>
+
+              <div class="profileitems">
+              <div class="profileleft">
+              <img ng-src="{{'http://node.takku.eu:8080'+profilerat.location}}"  id="sataimage">
+
+
+              </div>
+
+              <div class ="profileright">
+
+              <p>{{lang.ratname}} : {{profilerat.name}}</p>
+              <p>{{lang.weight}} : {{profilerat.weight}} g</p>
+              <p>{{lang.gender}} : {{profilerat.weight}}</p>
+              <p>{{lang.color}} : {{profilerat.color}}</p>
+              <p>{{lang.age}} : {{profilerat.age}} {{lang.months}}</p>
+              <p>{{lang.salary}} : {{profilerat.salary}} {{lang.eurotoh}}</p>
+              <p>{{lang.description}}</p>
+              <p>{{profilerat.description}}</p>
+              <p>Tags</p>
+              <p><k ng-repeat="tag in profilerat.tags" id="tagbox">{{tag.tag}} </k> </p>
+
+
+              </div>
+              </div>
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">{{lang.close}}</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<button class="accordion">{{lang.userinfo}}</button>
+<div class="panel">
+  <br>
+  <div class="profileProfile">
+
+
+    <div class="col-xs-12">
+
+      <div class="col-xs-3">
+        <label>{{lang.email}}:</label>
+      </div>
+
+      <div class="col-xs-9">
+        {{profile.email}}
+      </div>
+
+    </div>
+
+    <div class="col-xs-12">
+
+      <div class="col-xs-3">
+        <label>{{lang.name}}:</label>
+      </div>
+
+      <div class="col-xs-9">
+        {{profile.name}}
+      </div>
+
+    </div>
+
+    <div class="col-xs-12">
+
+      <div class="col-xs-3">
+        <label>{{lang.town}}:</label>
+      </div>
+
+      <div class="col-xs-9">
+        {{profile.town}}
+      </div>
+  </div>
+    <div class="col-xs-12">
+      <div class="col-xs-3">
+        <label>{{lang.postal}}:</label>
+      </div>
+
+      <div class="col-xs-9">
+        {{profile.postal}}
+      </div>
+  </div>
+
+
+    <div class="col-xs-12">
+
+      <div class="col-xs-3">
+        <label>{{lang.address}}:</label>
+      </div>
+
+      <div class="col-xs-9">
+        {{profile.address}}
+      </div>
+
+    </div>
+
+
+    <div class="col-xs-12">
+
+        <label>{{lang.freeword}}:</label>
+
+    </div>
+
+
+        <div class="col-xs-12">
+
+            {{profile.freeword}}
+        </div>
+
+
+        <div class="col-xs-12">
+
+          <button type="button" class="btn btn-warning" ng-click="editprofile()">
+        <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+        {{lang.edit}}</button>
+        </div>
+
+
+  </div>
+  <div class="profileEdit">
+
+
+        <div class="col-xs-12">
+
+          <div class="col-xs-3">
+            <label>{{lang.email}}:</label>
+          </div>
+
+          <div class="col-xs-9">
+            <label>{{profile.email}}:</label>
+          </div>
+
+        </div>
+
+        <div class="col-xs-12">
+
+          <div class="col-xs-3">
+            <label>{{lang.name}}:</label>
+          </div>
+
+          <div class="col-xs-9">
+            <input type="text" class="form-control" ng-model="profile.name"></input>
+
+          </div>
+
+        </div>
+
+        <div class="col-xs-12">
+
+          <div class="col-xs-3">
+            <label>{{lang.town}}:</label>
+          </div>
+
+          <div class="col-xs-3">
+              <input type="text" class="form-control" ng-model="profile.town"></input>
+          </div>
+
+          <div class="col-xs-3">
+            <label>{{lang.postal}}:</label>
+          </div>
+
+          <div class="col-xs-3">
+          <input type="text" class="form-control" ng-model="profile.postal"></input>
+          </div>
+
+        </div>
+
+        <div class="col-xs-12">
+
+          <div class="col-xs-3">
+            <label>{{lang.address}}:</label>
+          </div>
+
+          <div class="col-xs-9">
+            <input type="text" class="form-control" ng-model="profile.address"></input>
+          </div>
+
+        </div>
+
+
+        <div class="col-xs-12">
+
+            <label>{{lang.freeword}}:</label>
+
+        </div>
+
+
+            <div class="col-xs-12">
+
+                  <textarea class="form-control" rows="4" cols="50" style="resize : none;" ng-model="profile.freeword"></textarea>
+            </div>
+
+
+            <div class="col-xs-12">
+
+              <button type="button" class="btn btn-warning" ng-click="profiledited()">
+            <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+            {{lang.savesave}}</button>
+            </div>
+
+
+
+  </div>
+</div>
+
+<button class="accordion">{{lang.activerents}}</button>
+<div class="panel">
+
+{{message}}
+
+
+
+  <table class="table table-hover table-condensed table-striped" style="border-collapse:collapse;">
+      <thead>
+          <tr>
+              <td>{{lang.ratsname}}</td>
+              <td>{{lang.status}}</td>
+              <td>{{lang.starttime}}</td>
+              <td>{{lang.endtime}}</td>
+              <td>{{lang.price}}</td>
+          </tr>
+      </thead>
+
+
+      <tbody ng-repeat="rent in incomingrents">
+          <tr>
+              <td  data-toggle="modal" ng-click="ratmodal(rent.ratid)" data-target="#ratmodal"> {{rent.ratname}}</td>
+              <td  data-toggle="modal" ng-click="ratmodal(rent.ratid)" data-target="#ratmodal"> {{rent.status}}</td>
+              <td  data-toggle="modal" ng-click="ratmodal(rent.ratid)" data-target="#ratmodal"> {{rent.starttime}}</td>
+              <td  data-toggle="modal" ng-click="ratmodal(rent.ratid)" data-target="#ratmodal"> {{rent.endtime}}</td>
+              <td  data-toggle="modal" ng-click="ratmodal(rent.ratid)" data-target="#ratmodal"> {{rent.price}}</td>
+              <td>
+
+                  <button type="button" class="btn btn-warning" data-toggle="modal" ng-click="infomodal(rent._id)" data-target="#editmodal" >
+                <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                {{lang.edit}}</button>
+              </td>
+          </tr>
+
+      </tbody>
+  </table>
+
+</div>
+
+<button class="accordion">{{lang.renthistory}}</button>
+<div id="foo" class="panel">
+
+  <table class="table table-hover table-condensed table-striped" style="border-collapse:collapse;">
+      <thead>
+          <tr>
+              <td>{{lang.ratsname}}</td>
+              <td>{{lang.status}}</td>
+              <td>{{lang.starttime}}</td>
+              <td>{{lang.endtime}}</td>
+              <td>{{lang.price}}</td>
+          </tr>
+      </thead>
+
+
+      <tbody ng-repeat="rent in historyrents">
+          <tr data-toggle="modal" ng-click="ratmodal(rent.ratid)" data-target="#ratmodal">
+              <td> {{rent.ratname}}</td>
+              <td> {{rent.status}}</td>
+              <td> {{rent.starttime}}</td>
+              <td> {{rent.endtime}}</td>
+              <td> {{rent.price}}</td>
+          </tr>
+      </tbody>
+  </table>
+
+</div>
+
+<button class="accordion">{{lang.ContactUs}}</button>
+<div id="foo" class="panel">
+  <div class="col-xs-12">
+
+      <label>{{lang.message}}:</label>
+
+  </div>
+
+
+<div class="col-xs-12">
+
+      <textarea class="form-control" rows="4" cols="50" style="resize : none;" ng-model="message2"></textarea>  </div>
+      <div class="col-xs-12">
+            <button type="button" class="btn btn-success" data-dismiss="modal" ng-click="sendmessage(message2)">{{lang.message}}</button>
+      </div>
+
+<div ng-repeat="x in messages| reverse " >
+      <div class="col-xs-12 messagebox {{x.sender}}">
+            {{lang.from + " : "+x.sender}}<br>
+            {{x.stamp}}<br>
+            {{x.message}}
+      </div>
+</div>
+
+
+
+</div>

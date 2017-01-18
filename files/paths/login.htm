@@ -1,0 +1,54 @@
+<h2>{{lang.loginhere}}</h2>
+
+
+
+
+<label for="inputEmail" class="sr-only">{{lang.email}}</label>
+<input type="email" id="inputEmail" class="form-control" placeholder="{{lang.email}}" ng-model="email" required autofocus>
+<label for="inputPassword" class="sr-only">{{lang.password}}</label>
+<input type="password" id="inputPassword" class="form-control" placeholder="{{lang.password}}" ng-model="pwd" required>
+
+<button class="btn btn-lg btn-primary btn-block" ng-click="login(email,pwd)">{{lang.signin}}</button>
+<button class="btn btn-lg btn-primary btn-block" data-toggle="modal" data-target="#registermodal">{{lang.register}}</button>
+
+
+<div class="modal fade" id="registermodal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">{{lang.registernew}}</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    <div class="form-group">
+                        <label for="usr">{{lang.name}}</label>
+                        <input type="text" class="form-control" id="usr" ng-model="new.Name" placeholder="{{lang.name}}">
+                    </div>
+                    <div class="form-group">
+                        <label for="eml">{{lang.email}}</label>
+                        <input type="email" class="form-control" id="eml" ng-model="new.email" placeholder="{{lang.email}}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="pwds">{{lang.password}}</label>
+                        <input type="password" class="form-control" id="pwds" ng-model="new.Pwd1" placeholder="{{lang.pswdinst}}">
+                        <input type="password" class="form-control" id="pwds" ng-model="new.Pwd2" placeholder="{{lang.pswdinst}}">
+                    </div>
+                    <label>
+           <input type="checkbox" id="terms" required ng-click="checkdata()" ng-model="new.Terms">
+           <a href="{{lang.link}}">{{lang.terms}}</a>
+           </label>
+
+                </p>
+
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="newuserreg" class="btn btn-default" ng-click="newuser()" data-dismiss="modal">{{lang.save}}</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">{{lang.close}}</button>
+            </div>
+        </div>
+    </div>
+</div>
